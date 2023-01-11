@@ -33,8 +33,9 @@ if not os.path.isfile(f'{os.getcwd()}/status'):
         f.write(old_bridge)
     if 'closed' in old_bridge.lower(): notify(old_bridge)
 else:
-    with open('status', 'r+') as f:
+    with open('status', 'w+') as f:
         old_status = f.read()
         if old_status != old_bridge:
             notify(old_bridge)
+            f.write(old_bridge)
         else: pass
